@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Request</title>
+</head>
+<body>
+    <h1>API Response</h1>
+    <pre id="response"></pre>
+
+    <script>
+        fetch('https://restful-booker.herokuapp.com/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstname: 'John',
+                lastname: 'Doe',
+                totalprice: 123,
+                depositpaid: true,
+                bookingdates: {
+                    checkin: '2018-01-01',
+                    checkout: '2019-01-01'
+                },
+                additionalneeds: 'Breakfast'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            document.getElementById('response').textContent = 'Error: ' + error;
+        });
+    </script>
+</body>
+</html>

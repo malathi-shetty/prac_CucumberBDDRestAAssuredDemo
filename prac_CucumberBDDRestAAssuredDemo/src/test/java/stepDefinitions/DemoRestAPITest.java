@@ -44,7 +44,7 @@ public class DemoRestAPITest {
 	        
 		}
 
-		private void printPrettyResponse(Response response2) {
+		private void printPrettyResponse(Response response) {
 			 // Convert response body to a string
             String responseBody = response.getBody().asString();
             
